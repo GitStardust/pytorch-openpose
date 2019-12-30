@@ -216,4 +216,14 @@ class handpose_model(nn.Module):
         out_stage6 = self.model6(concat_stage6)
         return out_stage6
 
+if __name__ == "__main__":
 
+    import tensorwatch as tw
+    import sys
+    import torchvision.models
+    # model=torchvision.models.alexnet()
+    # tw.draw_model(model,[1,3,224,224])
+    bodypose_model__ = bodypose_model()
+    drawing=tw.draw_model(bodypose_model__,[1,3,224,224])
+    drawing.save('bodypose_model.png')
+    input("Press any key")
